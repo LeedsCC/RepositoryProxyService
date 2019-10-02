@@ -2,16 +2,10 @@ const RepositoryService = require('../../lib/services/repositoryRestService');
 const crypto = require('crypto')
 
 module.exports = async function searchRepository(args, finished) {
-    console.log("repository up")
-
-    //console.log(args)
-
     try {
         const queryCache = this.db.use("Query")
 
         let { query } = args.req
-
-        console.log(query)
 
         const currentPage = Number(query.page)
 
@@ -48,8 +42,6 @@ module.exports = async function searchRepository(args, finished) {
             results
         })
     } catch(error) {
-        console.log(error)
-
         finished({ error })
     }
 }
